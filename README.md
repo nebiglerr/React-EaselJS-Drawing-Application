@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# React EaselJS Drawing Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a drawing application built using React and EaselJS that allows users to add, select, move, and delete shapes such as rectangles, circles, and lines. Additionally, it supports exporting and importing shape data in JSON format.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Add Rectangles, Circles, and Lines with random colors.
+- Select and move individual shapes.
+- Delete selected shapes or all shapes.
+- Export shape data to a JSON file.
+- Import shape data from a JSON file.
+- Real-time scene updates with dynamic interactions.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React: A JavaScript library for building user interfaces.
+- EaselJS: A library for working with the HTML5 canvas element, allowing interactive graphics.
+- UUID: For generating unique IDs for the shapes.
+- HTML5 File API: Used for importing and exporting JSON data.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Installation
 
-### `npm test`
+1. Clone the repository:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash git clone <repository-url> ```
 
-### `npm run build`
+2. Navigate to the project directory:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash cd react-easeljs-drawing-app```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3.Install dependencies: Ensure you have Node.js installed, then run:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash npm install ```
 
-### `npm run eject`
+4.Start the development server:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash  npm start ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5.Open your browser: The application will be available at http://localhost:3000.
+ 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Usage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Add Shapes: Use the buttons to add rectangles, circles, or lines.
+- Select Shapes: Click on a shape to select it. The selected shape's color will change to red.
+- Move Shapes: Drag and drop shapes to move them around the canvas.
+- Delete Shapes: Click the "Delete Selected Shape" button to delete the selected shape, or "Delete All Shapes" to clear the canvas.
+- Export: Click the "Export to JSON" button to download the shapes as a JSON file.
+- Import: Use the file input to load shapes from a previously exported JSON file.
 
-## Learn More
+### Project Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-  App.js: The main React component that manages shape creation, selection, movement, and deletion using the EaselJS library.
+-  Shapes are drawn and manipulated on the canvas using EaselJS, allowing real-time interaction.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Keyboard Shortcuts
 
-### Code Splitting
+- Delete: : Deletes the selected shape.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Future Improvements
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Add shape resizing functionality.
+- Enable group selection and manipulation of multiple shapes.
+- Implement more complex undo/redo functionality for shape manipulations.
