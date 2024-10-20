@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Stage, Shape, Ticker } from '@createjs/easeljs';
 import { v4 as uuidv4 } from 'uuid';
+
 const App = () => {
   const canvasRef = useRef(null);
   const stageRef = useRef(null); // EaselJS stage referansı
@@ -77,15 +78,20 @@ const App = () => {
     setShapes([...shapes, circle]);
     stageRef.current.update(); // Sahneyi güncelle
   };
+
   const addLine = () => {
+    var x1 = Math.random() * window.innerWidth;
+    var y1= Math.random() * window.innerHeight;
+    var x2= Math.random() * window.innerWidth;
+    var y2 = Math.random() * window.innerHeight;
     const line = new Shape();
     line.graphics.setStrokeStyle(2).beginStroke(`#${Math.floor(Math.random() * 16777215).toString(16)}`);
-    line.graphics.moveTo(0, 0).lineTo(100, 100);  // Çizgi başlangıç ve bitiş noktaları
+    line.graphics.moveTo(0, 0).lineTo(x2, y2);  // Çizgi başlangıç ve bitiş noktaları
     line.x = Math.random() * window.innerWidth;
-    line.y = Math.random() * window.innerHeight;
-    line.id = uuidv4(); // Benzersiz ID
+    line.y = Math.random().toString(36).substr(2, 9); 
+    line.id = uuidv4();// Benzersiz ID
     line.type = 'line'; // Şekil tipi
-    line.points = [0, 0, 100, 100];
+    line.points = [x1, y1,x2, y2];
     line.on("pressmove", (evt) => {
       evt.currentTarget.x = evt.stageX;
       evt.currentTarget.y = evt.stageY;
@@ -98,6 +104,7 @@ const App = () => {
     setShapes([...shapes, line]);
     stageRef.current.update(); // Sahneyi güncelle
   };
+
   // Seçilen öğeyi sil
   const deleteSelectedShape = () => {
     if (selectedId) {
@@ -119,6 +126,13 @@ const App = () => {
     setShapes([]); // State'i temizle
     setSelectedId(null); // Seçimi sıfırla
     stageRef.current.update();
+  };
+
+  // Delete tuşu ile silme fonksiyonu
+  const handleKeyDown = (e) => {
+    if (e.key === 'Delete' && selectedId) {
+      deleteSelectedShape();
+    }
   };
 
   // JSON formatında dışa aktarma
@@ -203,7 +217,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div tabIndex={0} onKeyDown={handleKeyDown} style={{ outline: 'none' }}>
       <button onClick={addRectangle}>Add Rectangle</button>
       <button onClick={addCircle}>Add Circle</button>
       <button onClick={addLine}>Add Line</button>
